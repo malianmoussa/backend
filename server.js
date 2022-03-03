@@ -12,7 +12,7 @@ connectDatabase();
 const app = express();
 app.use(express.json());
 
-app.use(cors())
+
 
 // API
 app.use("/api/import", ImportData);
