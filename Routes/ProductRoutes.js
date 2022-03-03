@@ -6,8 +6,7 @@ import { admin, protect } from "./../Middleware/AuthMiddleware.js";
 const productRoute = express.Router();
 
 // GET ALL PRODUCT
-productRoute.get(
-  "/",
+productRoute.get("/",
   asyncHandler(async (req, res) => {
     const pageSize = 12;
     const page = Number(req.query.pageNumber) || 1;
@@ -29,8 +28,7 @@ productRoute.get(
 );
 
 // ADMIN GET ALL PRODUCT WITHOUT SEARCH AND PEGINATION
-productRoute.get(
-  "/all",
+productRoute.get("/all",
   protect,
   admin,
   asyncHandler(async (req, res) => {
@@ -40,8 +38,7 @@ productRoute.get(
 );
 
 // GET SINGLE PRODUCT
-productRoute.get(
-  "/:id",
+productRoute.get("/:id",
   asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
     if (product) {
@@ -54,8 +51,7 @@ productRoute.get(
 );
 
 // PRODUCT REVIEW
-productRoute.post(
-  "/:id/review",
+productRoute.post("/:id/review",
   protect,
   asyncHandler(async (req, res) => {
     const { rating, comment } = req.body;
@@ -92,8 +88,7 @@ productRoute.post(
 );
 
 // DELETE PRODUCT
-productRoute.delete(
-  "/:id",
+productRoute.delete("/:id",
   protect,
   admin,
   asyncHandler(async (req, res) => {
@@ -109,8 +104,7 @@ productRoute.delete(
 );
 
 // CREATE PRODUCT
-productRoute.post(
-  "/",
+productRoute.post("/",
   protect,
   admin,
   asyncHandler(async (req, res) => {
@@ -140,8 +134,7 @@ productRoute.post(
 );
 
 // UPDATE PRODUCT
-productRoute.put(
-  "/:id",
+productRoute.put("/:id",
   protect,
   admin,
   asyncHandler(async (req, res) => {
