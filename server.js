@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import dotenv from "dotenv";
 import connectDatabase from "./config/MongoDb.js";
 import ImportData from "./DataImport.js";
@@ -9,9 +10,10 @@ import orderRouter from "./Routes/orderRoutes.js";
 
 dotenv.config();
 connectDatabase();
+
 const app = express();
 app.use(express.json());
-
+app.use(cors())
 
 
 // API
